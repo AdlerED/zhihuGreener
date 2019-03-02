@@ -3,13 +3,14 @@
 var name = "Greener系列：知乎主页与问题浏览缓存自动清除|全面优化广告过滤";
 var siteName = "知乎";
 // @namespace    https://github.com/AdlerED
-// @version      1.0.0
-var version = "1.0.0";
+// @version      1.0.1
+var version = "1.0.1";
 // @description  轻量级TamperMonkey插件：你有没有遇到过浏览知乎过多过长导致页面崩溃/占用内存过多的情况? 本插件对其进行全面优化, 不用再刷新页面释放内存了! By Adler
 // @author       Adler
 // @connect      zhihu.com
 // @include      *://*.zhihu.com/*
 // @require      https://code.jquery.com/jquery-1.11.0.min.js
+// @note         19-03-02 1.0.1 优化了主页的浏览体验
 // @note         19-03-02 1.0.0 初版发布
 // ==/UserScript==
 
@@ -87,9 +88,6 @@ var memSaveModeArticle = true;
                         try {
                             cards[del].parentNode.removeChild(cards[del]);
                         } catch (err) { console.log("出现非致命性错误"); }
-                    }
-                    if (needToDel > 0) {
-                        $('html , body').animate({scrollTop: 0},'slow');
                     }
                 }
             }
